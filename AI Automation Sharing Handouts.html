@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Automation Workshop Handout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .handout-container {
+            max-width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25mm;
+            position: relative;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .handout-container {
+                box-shadow: none;
+                padding: 15mm;
+                max-width: 100%;
+                min-height: auto;
+                page-break-after: always;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2b579a;
+        }
+        
+        h1 {
+            color: #2b579a;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2b579a;
+            font-size: 22px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin: 20px 0 10px;
+        }
+        
+        .presenters {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            color: #777;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .agenda-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .agenda-item:before {
+            content: "•";
+            color: #2b579a;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .use-case-box {
+            background: #f8f9fa;
+            border-left: 4px solid #2b579a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .prompt-box {
+            background: #e8f4f8;
+            border: 1px solid #b6e0f0;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+        }
+        
+        .step-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .step-list li {
+            margin-bottom: 8px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #2b579a;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .resources-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        
+        .resources-list li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            border-top: 1px solid #e1e1e1;
+            padding-top: 20px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2b579a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 100;
+        }
+        
+        .print-btn:hover {
+            background: #1e3a6e;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">🖨️ Print Handout</button>
+    
+    <div class="handout-container">
+        <header>
+            <h1>AI & Automation in Daily Work</h1>
+            <div class="presenters">Presenters: Angela Xu & Chelsea</div>
+            <div class="date">Peer Sharing Session Handout</div>
+        </header>
+        
+        <div class="section">
+            <h2>Workshop Agenda</h2>
+            <div class="agenda-item">Opening & Introduction - Angela</div>
+            <div class="agenda-item"><strong>Topic 1: Power Automate</strong></div>
+            <div style="margin-left: 20px;">
+                <div class="agenda-item">Brief Intro & Functions - Angela</div>
+                <div class="agenda-item">Cloud Flow Deep Dive - Chelsea</div>
+                <div style="margin-left: 20px;">
+                    <div class="agenda-item">Approval Flow: How to Build & Use Case</div>
+                    <div class="agenda-item">CLM Report Triggering Email Notification</div>
+                    <div class="agenda-item">Practical Case: Scicom New Hire Onboarding List Flow</div>
+                </div>
+                <div class="agenda-item">Desktop Flow Overview - Angela</div>
+            </div>
+            <div class="agenda-item"><strong>Topic 2: AI in Daily Work</strong></div>
+            <div style="margin-left: 20px;">
+                <div class="agenda-item">Copilot Prompts - Chelsea</div>
+                <div class="agenda-item">Other AI Usage Scenarios - Angela</div>
+            </div>
+            <div class="agenda-item">Closing & Learning Resources - Angela</div>
+        </div>
+        
+        <div class="section">
+            <h2>Power Automate Use Cases</h2>
+            
+            <div class="use-case-box">
+                <h3>1. Approval Flow - Leave Request</h3>
+                <p><strong>Scenario:</strong> Automate employee leave request approvals</p>
+                <p><strong>Steps to Build:</strong></p>
+                <ol class="step-list">
+                    <li>Create trigger: "When a new response is submitted" (Forms/SharePoint)</li>
+                    <li>Add "Start and wait for an approval" action</li>
+                    <li>Configure approver: Direct manager (dynamic from HR system)</li>
+                    <li>Set timeout: 24-48 hours for response</li>
+                    <li>Based on approval result:
+                        <ul>
+                            <li>Approved: Send confirmation to employee & update calendar</li>
+                            <li>Rejected: Notify employee with reason</li>
+                            <li>Timeout: Escalate to secondary approver</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Time saved:</strong> ~15 minutes per request</p>
+            </div>
+            
+            <div class="use-case-box">
+                <h3>2. CLM Report Email Notification</h3>
+                <p><strong>Scenario:</strong> Auto-send updated reports to stakeholders</p>
+                <p><strong>Trigger:</strong> Scheduled (daily/weekly) or when report is updated</p>
+                <p><strong>Actions:</strong></p>
+                <ol class="step-list">
+                    <li>Get report from specified location (SharePoint/OneDrive)</li>
+                    <li>Check if data has changed since last run</li>
+                    <li>Format email with key metrics highlighted</li>
+                    <li>Send to distribution list</li>
+                    <li>Log sent report for audit trail</li>
+                </ol>
+            </div>
+            
+            <div class="use-case-box">
+                <h3>3. New Hire Onboarding List Flow</h3>
+                <p><strong>Scenario:</strong> Scicom automated onboarding workflow</p>
+                <p><strong>Process flow:</strong></p>
+                <ol class="step-list">
+                    <li>HR adds new hire to master list → Triggers flow</li>
+                    <li>Create user accounts (Active Directory/Office 365)</li>
+                    <li>Assign software licenses & security groups</li>
+                    <li>Setup SharePoint access & team memberships</li>
+                    <li>Send welcome email with credentials and first-day instructions</li>
+                    <li>Notify IT, manager, and facilities team</li>
+                </ol>
+                <p><strong>Benefits:</strong> Reduces manual setup from 2 hours to 15 minutes</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Copilot Prompt Library</h2>
+            
+            <h3>Email Prompts</h3>
+            <div class="prompt-box">"Rewrite this message as a professional business email: [paste your draft]"</div>
+            <div class="prompt-box">"Summarize this email thread highlighting key decisions and action items"</div>
+            <div class="prompt-box">"Draft a follow-up email to a client about project [project name] after our meeting on [date]"</div>
+            
+            <h3>Document & Report Prompts</h3>
+            <div class="prompt-box">"Identify 3 key insights from this dataset and explain them in simple terms"</div>
+            <div class="prompt-box">"Convert these meeting notes into a structured summary with: decisions, action items, owners, deadlines"</div>
+            <div class="prompt-box">"Improve the clarity and professionalism of this project status report"</div>
+            
+            <h3>Creative & Planning Prompts</h3>
+            <div class="prompt-box">"Brainstorm 5 agenda items for a team meeting about [topic]"</div>
+            <div class="prompt-box">"Suggest 3 different approaches to solve [problem statement]"</div>
+            <div class="prompt-box">"Create a checklist for [process name] with estimated time for each step"</div>
+        </div>
+        
+        <div class="section">
+            <h2>This Week's Practice Challenge</h2>
+            
+            <div class="use-case-box">
+                <h3>Beginner (Choose 1)</h3>
+                <span class="badge">15 min setup</span>
+                <span class="badge">Beginner</span>
+                <ul class="step-list">
+                    <li>Create a flow that saves email attachments from specific senders to OneDrive</li>
+                    <li>Set up a daily Teams reminder at 9 AM for your top 3 priorities</li>
+                    <li>Use Copilot to draft a meeting invitation for your next team sync</li>
+                </ul>
+            </div>
+            
+            <div class="use-case-box">
+                <h3>Intermediate (Choose 1)</h3>
+                <span class="badge">30-45 min setup</span>
+                <span class="badge">Intermediate</span>
+                <ul class="step-list">
+                    <li>Build an approval flow for small purchase requests (< $500)</li>
+                    <li>Automate weekly report compilation from multiple sources</li>
+                    <li>Create a flow that notifies you when specific keywords appear in company announcements</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Learning Resources</h2>
+            <ul class="resources-list">
+                <li><strong>Microsoft Learn:</strong> "Get started with Power Automate" learning path</li>
+                <li><strong>YouTube:</strong> John Liu's Power Automate tutorials</li>
+                <li><strong>Internal:</strong> Company Power Platform Community</li>
+                <li><strong>Practice:</strong> Power Automate Desktop (free for Windows)</li>
+                <li><strong>Templates:</strong> Power Automate Templates Gallery</li>
+                <li><strong>Copilot Lab:</strong> Microsoft's prompt examples and techniques</li>
+                <li><strong>Certification:</strong> PL-900: Power Platform Fundamentals</li>
+                <li><strong>Forums:</strong> Power Automate Community & Stack Overflow</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Contact: Angela Xu & Chelsea | Teams Channel: #AI-Automation-Workshop</p>
+            <p>Feedback welcome! Please share your automation success stories with the team.</p>
+            <p>Handout version 1.0 | Updated: [Today's Date]</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add current date to footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('en-US', options);
+            
+            const dateElements = document.querySelectorAll('.date, footer p:nth-child(3)');
+            dateElements.forEach(el => {
+                if (el.textContent.includes('[Today\'s Date]')) {
+                    el.textContent = el.textContent.replace('[Today\'s Date]', dateString);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
