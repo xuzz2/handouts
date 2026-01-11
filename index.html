@@ -184,6 +184,15 @@
             color: var(--accent);
         }
         
+        h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 18px 0 8px;
+            padding-left: 12px;
+            border-left: 3px solid var(--accent-3);
+        }
+        
         p {
             margin-bottom: 16px;
             font-size: 15px;
@@ -211,6 +220,177 @@
             height: 6px;
             background: var(--accent);
             border-radius: 50%;
+        }
+        
+        /* Template Grid Styles */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .template-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow-hover);
+            border-color: var(--primary);
+        }
+        
+        .template-category {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 0 0 0 8px;
+        }
+        
+        .template-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .template-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        .template-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary), #e0f2fe);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        /* Checklist Styles */
+        .checklist {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-sm);
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        
+        .checklist::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--primary));
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding-left: 5px;
+        }
+        
+        .checklist-checkbox {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid var(--accent);
+            border-radius: 6px;
+            margin-right: 12px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .checklist-checkbox::after {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 14px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .checklist-checkbox.checked::after {
+            opacity: 1;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            font-size: 14.5px;
+            color: var(--text);
+        }
+        
+        /* Process Steps */
+        .process-steps {
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .step-number {
+            min-width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-3));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-content {
+            flex: 1;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.5;
         }
         
         /* Table Styles */
@@ -587,6 +767,67 @@
             font-weight: 600;
         }
         
+        /* Interactive Elements */
+        .interactive-box {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border-radius: var(--radius-sm);
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px dashed var(--accent-2);
+            text-align: center;
+            position: relative;
+        }
+        
+        .interactive-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .start-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        
+        /* Email List */
+        .email-list {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .email-item {
+            display: inline-block;
+            background: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--primary-dark);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -622,7 +863,8 @@
                 font-size: 1rem;
             }
             
-            .link-grid {
+            .link-grid,
+            .template-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -640,6 +882,15 @@
             .color-palette-header {
                 padding: 12px 15px;
             }
+            
+            .process-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
         }
         
         @media (max-width: 480px) {
@@ -655,7 +906,7 @@
                 padding: 25px 20px;
             }
             
-            .card, .tool-category {
+            .card, .tool-category, .checklist {
                 padding: 18px;
             }
             
@@ -669,6 +920,10 @@
                 flex-direction: column;
                 gap: 8px;
                 align-items: flex-start;
+            }
+            
+            .template-grid {
+                gap: 15px;
             }
         }
         
@@ -716,6 +971,10 @@
             .color-palette-container {
                 break-inside: avoid;
                 box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            
+            .interactive-box {
                 border: 1px solid #ccc;
             }
         }
@@ -793,6 +1052,292 @@
                 <h3>2.2 Cloud Flow Deep Dive</h3>
                 <p>Cloud flows run in the cloud and can connect to various cloud services. They're ideal for automating workflows that involve multiple cloud applications like SharePoint, Outlook, Teams, etc.</p>
                 
+                <!-- NEW CONTENT STARTS HERE -->
+                
+                <h4>2.2.1 Power Automate Templates Overview</h4>
+                <p>Power Automate offers a wide range of templates designed for different scenarios.</p>
+                
+                <div class="template-grid">
+                    <div class="template-card">
+                        <div class="template-category">Email & Notifications</div>
+                        <div class="template-icon">📧</div>
+                        <div class="template-title">Send an email when a new file is added to OneDrive</div>
+                        <div class="template-description">Automatically notify users when new files are added to specific folders.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Email & Notifications</div>
+                        <div class="template-icon">📊</div>
+                        <div class="template-title">Send a daily summary email of new SharePoint items</div>
+                        <div class="template-description">Get daily reports of new items in SharePoint lists or libraries.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Email & Notifications</div>
+                        <div class="template-icon">💬</div>
+                        <div class="template-title">Post a message to Microsoft Teams when an email arrives</div>
+                        <div class="template-description">Forward important emails to Teams channels for team visibility.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">File & Document Management</div>
+                        <div class="template-icon">📎</div>
+                        <div class="template-title">Save Outlook email attachments to OneDrive</div>
+                        <div class="template-description">Automatically save attachments from emails to cloud storage.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">File & Document Management</div>
+                        <div class="template-icon">📂</div>
+                        <div class="template-title">Copy files from OneDrive to SharePoint</div>
+                        <div class="template-description">Sync files between personal and team storage locations.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">File & Document Management</div>
+                        <div class="template-icon">📄</div>
+                        <div class="template-title">Create a PDF from a Word document and save to OneDrive</div>
+                        <div class="template-description">Convert documents to PDF format automatically.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Approvals</div>
+                        <div class="template-icon">✅</div>
+                        <div class="template-title">Start an approval when a new item is added to SharePoint</div>
+                        <div class="template-description">Automate approval workflows for new list items.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Approvals</div>
+                        <div class="template-icon">👨‍💼</div>
+                        <div class="template-title">Request manager approval for a selected item</div>
+                        <div class="template-description">Streamline manager approval processes.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Approvals</div>
+                        <div class="template-icon">🏖️</div>
+                        <div class="template-title">Approve vacation requests via Teams</div>
+                        <div class="template-description">Handle leave requests directly through Teams.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Data Collection & Organization</div>
+                        <div class="template-icon">📊</div>
+                        <div class="template-title">Add a row to Excel when a new form response is submitted</div>
+                        <div class="template-description">Automatically populate Excel with form responses.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Data Collection & Organization</div>
+                        <div class="template-icon">📋</div>
+                        <div class="template-title">Create a task in Planner when an email is flagged</div>
+                        <div class="template-description">Convert flagged emails into Planner tasks.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Data Collection & Organization</div>
+                        <div class="template-icon">🔄</div>
+                        <div class="template-title">Update SharePoint list when a new email arrives</div>
+                        <div class="template-description">Sync email data with SharePoint for tracking.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Social & Communication</div>
+                        <div class="template-icon">🐦</div>
+                        <div class="template-title">Post tweets from RSS feeds</div>
+                        <div class="template-description">Automatically share RSS content on social media.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Social & Communication</div>
+                        <div class="template-icon">💬</div>
+                        <div class="template-title">Send a Teams message when a new file is uploaded</div>
+                        <div class="template-description">Notify teams about new file uploads.</div>
+                    </div>
+                    
+                    <div class="template-card">
+                        <div class="template-category">Social & Communication</div>
+                        <div class="template-icon">🔔</div>
+                        <div class="template-title">Notify me when a new item is added to a SharePoint list</div>
+                        <div class="template-description">Get instant notifications for list updates.</div>
+                    </div>
+                </div>
+                
+                <h4>2.2.2 Create a flow with power automate flow in 2 mins</h4>
+                
+                <div class="interactive-box">
+                    <div class="interactive-title">
+                        <span>⚡</span>
+                        Quick Flow Creation Challenge
+                        <span>⚡</span>
+                    </div>
+                    <p>Can you create a basic automation flow in under 2 minutes? Try this simple challenge:</p>
+                    <p><strong>Start with:</strong> "When I receive an email with specific keywords, save the attachment to OneDrive"</p>
+                    <a href="https://powerautomate.microsoft.com" target="_blank" class="start-button">Start Challenge Now</a>
+                </div>
+                
+                <h4>2.2.3 Interactive Section: Build & Approve a flow together</h4>
+                
+                <div class="checklist">
+                    <h5>Getting Started Checklist:</h5>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox"></div>
+                        <div class="checklist-text">Access Power Automate at <strong>powerautomate.microsoft.com</strong></div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox"></div>
+                        <div class="checklist-text">Use your company credentials to sign in</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox"></div>
+                        <div class="checklist-text">Explore the "Templates" section for inspiration</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox"></div>
+                        <div class="checklist-text">Create your first "Instant Cloud Flow"</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox"></div>
+                        <div class="checklist-text">Approver email can use: 
+                            <div class="email-list">
+                                <span class="email-item">cuixun1@lenovo.com</span>
+                                <span class="email-item">tip@lenovo.com</span>
+                                <span class="email-item">xuzz2@lenovo.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>2.2.4 Smart CLM Report Dispatcher</h4>
+                <p>This automated flow ensures continuous monitoring of contract stages, minimizing delays in visibility.</p>
+                
+                <div class="card">
+                    <h5>Process Overview:</h5>
+                    <p>When the CLM report is uploaded to SharePoint, the flow is triggered automatically. It applies filters based on contract owner and status—such as Business Review, Legal Review, or Amendment in Progress. The system then generates an email containing an HTML table with all relevant contract details and sends it to the designated user group.</p>
+                    <p>As a result, the billing team receives timely updates on the status of Statements of Work (SOW) without any manual intervention. This eliminates the need to open the CLM report in Excel, streamlining the process and improving efficiency.</p>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Trigger: CLM Report Upload</div>
+                                <div class="step-description">Flow activates when report is uploaded to SharePoint</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Filter Application</div>
+                                <div class="step-description">Filters by contract owner and status (Business Review, Legal Review, Amendment in Progress)</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Email Generation</div>
+                                <div class="step-description">Creates HTML table with contract details</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Automated Dispatch</div>
+                                <div class="step-description">Sends email to designated user group</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>2.2.5 New Hire Onboarding Flow</h4>
+                
+                <div class="card">
+                    <h5>Trigger:</h5>
+                    <p>Initiated when vendor HR submits a Microsoft Form for a new Lenovo team member. Form includes key details such as salary, employee ID, and benefits.</p>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">System triggers approval request</div>
+                                <div class="step-description">Sent via Outlook and Teams. Includes Level 1 approver and Level 2 manager. Only one approval required — whichever approver responds first is considered final. Approvers can view all new hire details through the provided link. Teams allows reassignment to another approver if necessary.</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Approval Completion</div>
+                                <div class="step-description">First approver to respond completes the process.</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Post-Approval Actions</div>
+                                <div class="step-description">SharePoint list updated automatically, including approval status. Access permissions granted to relevant folders/items. Email notification sent to Scicom HR as proof of approval.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li>Eliminates manual tracking of new hire approvals</li>
+                            <li>Provides real-time visibility and flexibility for approvers</li>
+                            <li>Ensures compliance and documentation through automated notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>2.2.6 Invoice Extra Flow (AI Builder)</h4>
+                
+                <div class="card">
+                    <h5>Purpose:</h5>
+                    <p>Extract invoice details with AI and automatically write the structured data into an Excel file stored in SharePoint.</p>
+                    
+                    <h5>Flow Steps:</h5>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Manually trigger a flow</div>
+                                <div class="step-description">Starts the process and (optionally) passes inputs such as the invoice file, filename, or URL.</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Run a prompt (AI Builder)</div>
+                                <div class="step-description">Uses a prompt to extract key fields from the invoice (e.g., Vendor, Invoice Number, Invoice Date, Currency, Total, Line Items). Output: a JSON-like string with the extracted fields.</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Compose</div>
+                                <div class="step-description">Normalizes/cleans the AI output (e.g., ensures consistent field names or formats).</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Parse JSON</div>
+                                <div class="step-description">Validates and converts the string into a typed JSON object using a defined schema.</div>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <div class="step-title">Run script (Office Scripts → Excel in SharePoint)</div>
+                                <div class="step-description">Writes the parsed fields into the target workbook and table (e.g., appends a new row or updates existing records).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW CONTENT ENDS HERE -->
+                
                 <div class="tool-category">
                     <h3>2.3 Desktop & Hybrid Flow Overview</h3>
                     
@@ -823,7 +1368,7 @@
                                 <div class="flowchart-title">Hybrid Flow Architecture Diagram</div>
                                 <div class="flowchart-badge">Visual Guide</div>
                             </div>
-                            <img src="C:\Users\xuzz2\Downloads\Flow_design_hybrid.png" 
+                            <img src="https://raw.githubusercontent.com/xuzz2/handouts/main/Flow_design_hybrid.png" 
                                  alt="Hybrid Flow Design Architecture Diagram showing Desktop Flow and Cloud Flow integration" 
                                  class="flowchart-image">
                             <div class="flowchart-caption">Figure: Hybrid Flow Design - Desktop and Cloud Integration</div>
@@ -924,6 +1469,19 @@ Prop: Holding/leaning against a red paper-cut-style wooden horse ornament, desig
 Background & Environment: The background consists of matte red-and-blue contrasting panels---red on the left, sapphire blue on the right, with blue square cut-out details partially visible. In the top left/upper part of the background, there is white handwritten English text "Horse 2026" in a casual brush-stroke style. The ground is a light khaki matte surface, clean and uncluttered.
 
 Lighting & Color: Soft studio lighting with the main light source positioned front/side-front, creating even and gentle illumination without harsh shadows, highlighting the texture of the face and clothing. The color palette centers on sapphire blue, bright red, and white, with strong yet harmonious contrasts. The red paper-cut wooden horse echoes the red-and-blue background, resulting in a vibrant and cheerful overall tone full of festive and New Year atmosphere.</div>
+                        
+                        <h5>Lifestyle Photography Prompt (Male):</h5>
+                        <div class="prompt-example">Crystal-clear natural complexion with neatly groomed and defined masculine eyebrows. The skin has a clean, healthy texture. The smile is bright and warm, embodying the confident and energetic spirit of a vibrant young man. 
+Hair is short, textured, and neatly styled, emphasizing a clean and modern look. 
+
+Outfit: Wearing a sapphire blue mohair knit set—a relaxed high-neck sweater and straight-leg pants in the same color and fabric. The neck is wrapped with a red-and-white wide-striped knit scarf. 
+
+Prop: Holding/leaning against a red paper-cut-style wooden horse ornament, designed in the traditional Chinese paper-cut art style, in a bright matte red cardboard finish. 
+
+Background & Environment: The background consists of matte red-and-blue contrasting panels—red on the left, sapphire blue on the right, with blue square cut-out details partially visible. In the top left/upper part of the background, there is white handwritten English text "Horse 2026" in a casual brush-stroke style. The ground is a light khaki matte surface, clean and uncluttered. 
+
+Lighting & Color: Soft studio lighting with the main light source positioned front/side-front, creating even and gentle illumination without harsh shadows, highlighting the facial structure, natural skin texture, and the fabric of the clothing. The color palette centers on sapphire blue, bright red, and white, with strong yet harmonious contrasts. The red paper-cut wooden horse echoes the red-and-blue background, resulting in a vibrant and festive overall tone full of New Year atmosphere.</div>
+
                     </div>
                 </div>
                 
@@ -1009,7 +1567,7 @@ Lighting & Color: Soft studio lighting with the main light source positioned fro
                             <div class="color-palette-title">AI Color Palette Advisor</div>
                             <div class="color-palette-badge">Design Tool</div>
                         </div>
-                        <img src="C:\Users\xuzz2\Downloads\AI color palette advisor.png" 
+                        <img src="https://raw.githubusercontent.com/xuzz2/handouts/main/AI%20color%20palette%20advisor.png" 
                              alt="AI Color Palette Advisor interface showing color scheme suggestions" 
                              class="color-palette-image">
                         <div class="color-palette-caption">Figure: AI Color Palette Advisor - Automated color scheme generation tool</div>
@@ -1092,5 +1650,18 @@ Lighting & Color: Soft studio lighting with the main light source positioned fro
             <p>© 2024 | For educational and sharing purposes</p>
         </footer>
     </div>
+
+    <script>
+        // Interactive checklist functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checklist-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.classList.toggle('checked');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
