@@ -3,596 +3,1094 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Automation Workshop Handout</title>
+    <title>AI & Automation in Daily Work Handouts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f0f9ff;
+            --accent: #10b981;
+            --accent-2: #f59e0b;
+            --accent-3: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --shadow: rgba(99, 102, 241, 0.1);
+            --shadow-hover: rgba(99, 102, 241, 0.2);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --accent: #3b82f6;
-            --text: #1f2937;
-            --light-bg: #f8fafc;
-            --border: #e2e8f0;
         }
         
         body {
-            background-color: var(--light-bg);
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
             color: var(--text);
-            line-height: 1.7;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            font-size: 15px;
             padding: 20px;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
         }
         
-        .handout-container {
-            max-width: 210mm;
-            min-height: 297mm;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 25mm;
-            position: relative;
-            border-radius: 8px;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 60px var(--shadow);
             overflow: hidden;
-        }
-        
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .handout-container {
-                box-shadow: none;
-                padding: 15mm;
-                max-width: 100%;
-                min-height: auto;
-                page-break-after: always;
-            }
-            
-            .no-print {
-                display: none;
-            }
-        }
-        
-        header {
-            text-align: center;
-            margin: -25mm -25mm 30px -25mm;
-            padding: 25mm 25mm 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
+            border: 1px solid var(--border);
             position: relative;
-            overflow: hidden;
         }
         
-        header::before {
+        .container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-3));
+            z-index: 10;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
+            color: white;
+            padding: 40px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-            opacity: 0.3;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.3) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
         
         h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
             font-weight: 800;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
             position: relative;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .presenters {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 40px 35px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 20px;
+            position: relative;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
         }
         
         h2 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin: 35px 0 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--border);
+            font-size: 1.6rem;
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
         h2::after {
             content: '';
             position: absolute;
+            bottom: 0;
             left: 0;
-            bottom: -2px;
-            width: 50px;
-            height: 2px;
-            background: var(--accent);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            border-radius: 2px;
         }
         
         h3 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin: 20px 0 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 25px 0 12px;
+            padding-left: 8px;
+            border-left: 4px solid var(--accent-2);
         }
         
-        .presenters {
+        h4 {
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 8px;
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .date {
-            color: rgba(255,255,255,0.8);
-            font-style: italic;
-            position: relative;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-        }
-        
-        .agenda-item {
-            margin-bottom: 15px;
-            padding-left: 15px;
-            position: relative;
-        }
-        
-        .agenda-item:before {
-            content: "•";
-            color: #2b579a;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .use-case-box {
-            background: #f8f9fa;
-            border-left: 4px solid #2b579a;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .prompt-box {
-            background: #e8f4f8;
-            border-left: 4px solid var(--accent);
-            padding: 14px 18px;
-            margin: 15px 0;
-            font-family: 'Fira Code', 'Courier New', monospace;
-            border-radius: 0 6px 6px 0;
-            position: relative;
-            transition: all 0.2s ease;
-            border: 1px solid var(--border);
-            border-left-width: 4px;
-        }
-        
-        .prompt-box:hover {
-            transform: translateX(4px);
-            box-shadow: 4px 4px 0 var(--accent);
-        }
-        
-        .prompt-box::before {
-            content: '📝';
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            border: 2px solid var(--accent);
-        }
-        
-        .step-list {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .step-list li {
-            margin-bottom: 8px;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: #2b579a;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .resources-list {
-            columns: 2;
-            column-gap: 30px;
-        }
-        
-        .resources-list li {
-            margin-bottom: 10px;
-            break-inside: avoid;
-        }
-        
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 14px;
-            color: #777;
-            border-top: 1px solid #e1e1e1;
-            padding-top: 20px;
-        }
-        
-        .print-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 500;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-            transition: all 0.2s ease;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 20px 0 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
-        .print-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+        h4::before {
+            content: '▸';
+            color: var(--accent);
         }
         
-        .contact-icon {
-            font-size: 1.2rem;
-            margin-right: 8px;
+        p {
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--text);
         }
         
-        .contact-item {
+        /* Lists */
+        ul, ol {
+            margin: 0 0 20px 25px;
+        }
+        
+        li {
             margin-bottom: 10px;
+            padding-left: 8px;
+            font-size: 14.5px;
+            position: relative;
         }
         
-        .contact-item a {
+        li::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-weight: 600;
+            text-align: left;
+            padding: 16px 18px;
+            font-size: 14.5px;
+            border: none;
+            position: relative;
+        }
+        
+        th:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        tr:nth-child(even) {
+            background-color: #fafbff;
+        }
+        
+        tr:hover {
+            background-color: var(--secondary);
+            transform: translateX(4px);
+        }
+        
+        /* Cards and Special Elements */
+        .card {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 22px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 20px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--primary));
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow-hover);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            position: relative;
+        }
+        
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, transparent 50%, var(--accent) 50%);
+            border-radius: 0 0 0 100%;
+        }
+        
+        .code-block, .prompt-example {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            margin: 18px 0;
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            border: 1px solid #334155;
+            position: relative;
+        }
+        
+        .code-block::before, .prompt-example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3));
+        }
+        
+        /* Flowchart Styles */
+        .flowchart-container {
+            margin: 25px 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            background: white;
+            position: relative;
+        }
+        
+        .flowchart-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .flowchart-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+        
+        .flowchart-badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .flowchart-image {
+            width: 100%;
+            display: block;
+            padding: 20px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .flowchart-caption {
+            text-align: center;
+            padding: 12px 20px;
+            background: var(--secondary);
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+        
+        /* Color Palette Styles */
+        .color-palette-container {
+            margin: 25px 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            background: white;
+            position: relative;
+        }
+        
+        .color-palette-header {
+            background: linear-gradient(135deg, #fef7ff 0%, #f5f3ff 100%);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .color-palette-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+        
+        .color-palette-badge {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .color-palette-image {
+            width: 100%;
+            display: block;
+            padding: 20px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+        
+        .color-palette-caption {
+            text-align: center;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #fef7ff 0%, #f5f3ff 100%);
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+        
+        .color-palette-link {
+            display: inline-block;
+            margin: 10px 0 15px 0;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
             color: white;
             text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            transition: var(--transition);
         }
         
-        .contact-item a:hover {
+        .color-palette-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        /* Links */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--shadow);
+            border-color: var(--primary);
+        }
+        
+        .link-card a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14.5px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .link-card a:hover {
+            color: var(--primary);
             text-decoration: underline;
         }
+        
+        .link-card a::before {
+            content: '🌐';
+            font-size: 16px;
+        }
+        
+        /* Tool Categories */
+        .tool-category {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        
+        .tool-category::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+        }
+        
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--secondary), #e0f2fe);
+            color: var(--primary-dark);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 2px 4px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #cbd5e1;
+            padding: 35px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.9;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .container {
+                border-radius: 12px;
+            }
+            
+            header {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            h4 {
+                font-size: 1rem;
+            }
+            
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .flowchart-image,
+            .color-palette-image {
+                padding: 10px;
+            }
+            
+            .flowchart-header,
+            .color-palette-header {
+                padding: 12px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .card, .tool-category {
+                padding: 18px;
+            }
+            
+            .presenters {
+                font-size: 1rem;
+                padding: 6px 16px;
+            }
+            
+            .flowchart-header,
+            .color-palette-header {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+            
+            .link-card {
+                break-inside: avoid;
+            }
+            
+            header {
+                color: black;
+                background: white !important;
+            }
+            
+            header::before {
+                display: none;
+            }
+            
+            .container::before {
+                display: none;
+            }
+            
+            .flowchart-container,
+            .color-palette-container {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button class="print-btn no-print" onclick="window.print()">🖨️ Print Handout</button>
-    
-    <div class="handout-container">
+    <div class="container">
         <header>
+            <div class="header-pattern"></div>
             <h1>AI & Automation in Daily Work</h1>
-            <div class="presenters">Presenters: Angela Xu & Chelsea</div>
-            <div class="date">Peer Sharing Session Handout</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span class="contact-icon">📧</span>
-                    <a href="mailto:angela.xu@example.com">angela.xu@example.com</a> | 
-                    <a href="mailto:chelsea@example.com">chelsea@example.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">💼</span>
-                    <span>Department of Digital Transformation</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">🔗</span>
-                    <a href="https://your-company-intranet/ai-resources" target="_blank">AI Resources Portal</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <span>Phone: 555-555-5555</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <span>Location: 123 Main St, Anytown, USA</span>
-                </div>
-            </div>
+            <p class="presenters">Presenters: Angela Xu & Chelsea</p>
         </header>
         
-        <div class="section">
-            <h2>Workshop Agenda</h2>
-            <div class="agenda-item">Opening & Introduction - Angela</div>
-            <div class="agenda-item"><strong>Topic 1: Power Automate</strong></div>
-            <div style="margin-left: 20px;">
-                <div class="agenda-item">Brief Intro & Functions - Angela</div>
-                <div class="agenda-item">Cloud Flow Deep Dive - Chelsea</div>
-                <div style="margin-left: 20px;">
-                    <div class="agenda-item">Approval Flow: How to Build & Use Case</div>
-                    <div class="agenda-item">CLM Report Triggering Email Notification</div>
-                    <div class="agenda-item">Practical Case: Scicom New Hire Onboarding List Flow</div>
+        <div class="content">
+            <section id="welcome">
+                <div class="section-icon">🎯</div>
+                <h2>Welcome & Session Objectives</h2>
+                <ul>
+                    <li>Understand Power Automate basic functions and use cases</li>
+                    <li>Be able to create simple approval and notification flows</li>
+                    <li>Learn about other AI tools for different purpose</li>
+                    <li>Know how to continue learning and practicing</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Beginner Friendly</span>
+                    <span class="tag">Hands-on</span>
+                    <span class="tag">Practical Examples</span>
                 </div>
-                <div class="agenda-item">Desktop Flow Overview - Angela</div>
-            </div>
-            <div class="agenda-item"><strong>Topic 2: AI in Daily Work</strong></div>
-            <div style="margin-left: 20px;">
-                <div class="agenda-item">Copilot Prompts - Chelsea</div>
-                <div class="agenda-item">Other AI Usage Scenarios - Angela</div>
-            </div>
-            <div class="agenda-item">Closing & Learning Resources - Angela</div>
-        </div>
-        
-        <div class="section">
-            <h2>Power Automate Use Cases</h2>
+            </section>
             
-            <div class="use-case-box">
-                <h3>1. Approval Flow - Leave Request</h3>
-                <p><strong>Scenario:</strong> Automate employee leave request approvals</p>
-                <p><strong>Steps to Build:</strong></p>
-                <ol class="step-list">
-                    <li>Create trigger: "When a new response is submitted" (Forms/SharePoint)</li>
-                    <li>Add "Start and wait for an approval" action</li>
-                    <li>Configure approver: Direct manager (dynamic from HR system)</li>
-                    <li>Set timeout: 24-48 hours for response</li>
-                    <li>Based on approval result:
+            <section id="power-automate">
+                <div class="section-icon">⚡</div>
+                <h2>Power Automate</h2>
+                
+                <h3>2.1 Brief Intro & Functions</h3>
+                <p>A Microsoft automation tool that helps you connect different apps and services to automate repetitive tasks.</p>
+                
+                <div class="highlight-box">
+                    <h4>Three Main Flow Types:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Best For</th>
+                                <th>Characteristics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cloud Flow</strong></td>
+                                <td>Cloud service integration</td>
+                                <td>No installation needed, cross-device access</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desktop Flow</strong></td>
+                                <td>Desktop applications</td>
+                                <td>Automates local software operations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Business Process Flow</strong></td>
+                                <td>Standardizing business processes</td>
+                                <td>Guides users through complex procedures</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Basic Concepts:</h4>
+                <ul>
+                    <li><strong>Trigger:</strong> Event that starts the flow (e.g., new email arrives, form submission)</li>
+                    <li><strong>Action:</strong> Specific steps the flow executes</li>
+                    <li><strong>Connector:</strong> Bridge between different services (1,000+ connectors available)</li>
+                </ul>
+                
+                <h3>2.2 Cloud Flow Deep Dive</h3>
+                <p>Cloud flows run in the cloud and can connect to various cloud services. They're ideal for automating workflows that involve multiple cloud applications like SharePoint, Outlook, Teams, etc.</p>
+                
+                <div class="tool-category">
+                    <h3>2.3 Desktop & Hybrid Flow Overview</h3>
+                    
+                    <h4>2.3.1 Desktop Flow Overview</h4>
+                    <p><strong>Specific Scenarios Requiring Desktop Flow:</strong></p>
+                    <ul>
+                        <li>Legacy/Desktop Application Automation / Desktop Software That Lacks APIs</li>
+                        <li>File System Operations on Your Computer</li>
+                        <li>Website Automation with Complex Interactions</li>
+                    </ul>
+                    
+                    <h4>2.3.2 Desktop + Cloud Flow Hybrid Use Case</h4>
+                    <div class="card">
+                        <h5>Scenario: Legacy Database Report Distribution</h5>
+                        <p><strong>Business Context:</strong></p>
+                        <p>You have an on-premises MySQL database that:</p>
                         <ul>
-                            <li>Approved: Send confirmation to employee & update calendar</li>
-                            <li>Rejected: Notify employee with reason</li>
-                            <li>Timeout: Escalate to secondary approver</li>
+                            <li><strong>No direct cloud access</strong> - Firewall restrictions, no public API</li>
+                            <li><strong>Requires complex data processing</strong> - Needs Python scripts for transformation</li>
+                            <li><strong>Security constraints</strong> - Data cannot be directly accessed from cloud services</li>
                         </ul>
-                    </li>
-                </ol>
-                <p><strong>Time saved:</strong> ~15 minutes per request</p>
-            </div>
+                        
+                        <p><strong>Flow Design:</strong></p>
+                        
+                        <!-- FLOWCHART IMAGE ADDED HERE -->
+                        <div class="flowchart-container">
+                            <div class="flowchart-header">
+                                <div class="flowchart-title">Hybrid Flow Architecture Diagram</div>
+                                <div class="flowchart-badge">Visual Guide</div>
+                            </div>
+                            <img src="C:\Users\xuzz2\Downloads\Flow_design_hybrid.png" 
+                                 alt="Hybrid Flow Design Architecture Diagram showing Desktop Flow and Cloud Flow integration" 
+                                 class="flowchart-image">
+                            <div class="flowchart-caption">Figure: Hybrid Flow Design - Desktop and Cloud Integration</div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h5>a. Hybrid Flow — Desktop Flow</h5>
+                            <ul>
+                                <li>Setup: Get time, copy template files to a working folder.</li>
+                                <li>File Prep: Find target file, convert it to binary, upload to SharePoint/OneDrive.</li>
+                                <li>Cloud Trigger: Call a Cloud Flow URL to start the next automation.</li>
+                                <li>Notify: Show status messages at key steps for confirmation.</li>
+                            </ul>
+                            <p><strong>Purpose:</strong> Automate file processing and handoff to a cloud workflow.</p>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h5>b. Hybrid Flow — Cloud Flow</h5>
+                            <p><strong>Trigger:</strong> An HTTP request (from the Desktop Flow).</p>
+                            <p><strong>Process:</strong></p>
+                            <ul>
+                                <li><strong>Delay:</strong> Waits for a process to complete or schedules a pause.</li>
+                                <li><strong>File Operation:</strong> Lists files in a specific folder and uses a filter to locate a target file (e.g., a dynamically named report).</li>
+                                <li><strong>Email:</strong> Retrieves the content of the found file and attaches it to an email, which is then sent out.</li>
+                            </ul>
+                            <p><strong>Core Purpose:</strong> To receive a trigger, find a specific file after a delay, and email it automatically.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <div class="use-case-box">
-                <h3>2. CLM Report Email Notification</h3>
-                <p><strong>Scenario:</strong> Auto-send updated reports to stakeholders</p>
-                <p><strong>Trigger:</strong> Scheduled (daily/weekly) or when report is updated</p>
-                <p><strong>Actions:</strong></p>
-                <ol class="step-list">
-                    <li>Get report from specified location (SharePoint/OneDrive)</li>
-                    <li>Check if data has changed since last run</li>
-                    <li>Format email with key metrics highlighted</li>
-                    <li>Send to distribution list</li>
-                    <li>Log sent report for audit trail</li>
-                </ol>
-            </div>
+            <section id="ai-tools">
+                <div class="section-icon">🤖</div>
+                <h2>Other AI Tools</h2>
+                
+                <h3>3.1 Copilot Prompts</h3>
+                <p>Microsoft Copilot and similar AI assistants can help with various tasks when given effective prompts. Good prompts are specific, contextual, and clearly state the desired outcome.</p>
+                
+                <div class="tool-category">
+                    <h3>3.2 Other AI Usage Scenarios</h3>
+                    
+                    <h4>3.2.1 AI-powered Image Generator/Editor</h4>
+                    <div class="card">
+                        <h5>Nano Banana</h5>
+                        <p>The most popular AI image model recently.</p>
+                        <p><a href="https://www.google.com/search?q=Nano+Banana" target="_blank">Nano Banana</a> is the popular, informal name for Google's AI-powered image generation and editing tool, built into Gemini, known for creating realistic visuals from text prompts and editing existing images.</p>
+                        <p>A tutorial from YouTube: <a href="https://www.youtube.com/watch?v=EYn3OEsTlbY" target="_blank">https://www.youtube.com/watch?v=EYn3OEsTlbY</a></p>
+                        
+                        <div class="link-grid">
+                            <div class="link-card">
+                                <a href="https://app.klingai.com/global/omni/new" target="_blank">KlingO1</a>
+                            </div>
+                            <div class="link-card">
+                                <a href="https://www.lovart.ai/home" target="_blank">Lovart</a>
+                            </div>
+                            <div class="link-card">
+                                <a href="https://openart.ai/home" target="_blank">OpenArt</a>
+                            </div>
+                            <div class="link-card">
+                                <a href="https://www.liblib.art/" target="_blank">Liblib</a>
+                            </div>
+                            <div class="link-card">
+                                <a href="https://chatgpt.com/images/" target="_blank">GPT Image (ChatGPT)</a>
+                            </div>
+                            <div class="link-card">
+                                <a href="https://www.doubao.com/chat/" target="_blank">Doubao</a>
+                            </div>
+                        </div>
+                        
+                        <h5>Apple Executive Headshots Prompt:</h5>
+                        <div class="prompt-example">Convert uploaded portrait into a high-end studio photograph in the style of Apple executive headshots, while preserving the subject's original facial features and identity.
+
+COMPOSITION: Half-body crop with sharp focus on the face, HD resolution, realistic skin texture, clean minimal composition
+
+LIGHTING:
+- Soft, even frontal key light
+- Subtle fill light to eliminate facial shadows while showing natural skin texture
+- Fine rim light outlining hair and shoulders to separate subject from background
+- Bright eye catchlights for engagement
+- Soft facial contouring with no hard shadows
+- Overall bright, clean, professional studio lighting
+
+BACKGROUND: Smooth gradient from slightly darker top to lighter bottom in neutral tones (light gray or off-white), with clear separation between subject and background
+
+EXPRESSION: Confident yet approachable, natural expression with bright engaging eyes and a genuine smile
+
+STYLING: Professional executive style, high-end photography quality</div>
+                        
+                        <h5>Lifestyle Photography Prompt (Female):</h5>
+                        <div class="prompt-example">Crystal-clear natural makeup, with naturally thin and defined eyebrows, light brown earth-tone eye makeup, and natural nude-pink lips. The smile is bright and lively, embodying the spirited and youthful energy of a vibrant girl.
+
+Hair is long, straight, smooth, and glossy, emphasizing a simple and fresh style.
+
+Outfit: Wearing a sapphire blue mohair knit set---a loose-fit high-neck sweater and wide-leg pants in the same color and fabric. The neck is wrapped with a red-and-white wide-striped knit scarf.
+
+Prop: Holding/leaning against a red paper-cut-style wooden horse ornament, designed in traditional Chinese paper-cut art style, in bright matte red cardboard finish.
+
+Background & Environment: The background consists of matte red-and-blue contrasting panels---red on the left, sapphire blue on the right, with blue square cut-out details partially visible. In the top left/upper part of the background, there is white handwritten English text "Horse 2026" in a casual brush-stroke style. The ground is a light khaki matte surface, clean and uncluttered.
+
+Lighting & Color: Soft studio lighting with the main light source positioned front/side-front, creating even and gentle illumination without harsh shadows, highlighting the texture of the face and clothing. The color palette centers on sapphire blue, bright red, and white, with strong yet harmonious contrasts. The red paper-cut wooden horse echoes the red-and-blue background, resulting in a vibrant and cheerful overall tone full of festive and New Year atmosphere.</div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>3.2.2 AI Voice Generator</h4>
+                    <p><strong>Check out the popular AI voice generators.</strong></p>
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <a href="https://ttsmaker.com/" target="_blank">TTSMaker</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://ttsopenai.com/" target="_blank">TTS OpenAI</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://www.minimax.io/audio" target="_blank">MINIMAX</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://notegpt.io/text-to-speech" target="_blank">NoteGPT</a>
+                        </div>
+                        <div class="link-card">
+                            <span>Doubao by ByteDance: Check with the mobile app.</span>
+                        </div>
+                    </div>
+                    
+                    <h5>Copy/paste text for test case:</h5>
+                    <div class="card">
+                        <div class="highlight-box">
+                            <strong>TC01: Generate speech from simple text input</strong>
+                            <div class="code-block">Input: "Hello, how are you today?"</div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>TC02: Numbers and dates</strong>
+                            <div class="code-block">Input: "Meeting on January 15, 2024 at 3:30 PM for $1,500 budget."</div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>TC03: Punctuation effects</strong>
+                            <div class="code-block">Input: "Wait... Really? Amazing! Calm down."</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>3.2.3 AI Video Generator/Editor</h4>
+                    <p><strong>Check out the popular AI video generators.</strong></p>
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <a href="https://hailuoai.video/" target="_blank">HailuoAI</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://klingai.com/global/" target="_blank">KlingAI</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://sora.chatgpt.com/" target="_blank">Sora by ChatGPT</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://runwayml.com/" target="_blank">Runway</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank">Jimeng by ByteDance</a>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Video editors with AI feature:</strong></p>
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <a href="https://www.capcut.cn/" target="_blank">剪映 (China Mainland)</a>
+                        </div>
+                        <div class="link-card">
+                            <a href="https://www.capcut.com/" target="_blank">CapCut (Overseas Version)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>3.2.4 AI Color Palette Advisor</h4>
+                    <p>Try at AIColors: <a href="https://www.bairesdev.com/tools/ai-colors" target="_blank">https://www.bairesdev.com/tools/ai-colors</a></p>
+                    
+                    <!-- COLOR PALETTE ADVISOR IMAGE ADDED HERE -->
+                    <div class="color-palette-container">
+                        <div class="color-palette-header">
+                            <div class="color-palette-title">AI Color Palette Advisor</div>
+                            <div class="color-palette-badge">Design Tool</div>
+                        </div>
+                        <img src="C:\Users\xuzz2\Downloads\AI color palette advisor.png" 
+                             alt="AI Color Palette Advisor interface showing color scheme suggestions" 
+                             class="color-palette-image">
+                        <div class="color-palette-caption">Figure: AI Color Palette Advisor - Automated color scheme generation tool</div>
+                    </div>
+                    
+                    <p><strong>Features of AI Color Palette Tools:</strong></p>
+                    <ul>
+                        <li>Generate harmonious color schemes based on a single color</li>
+                        <li>Create palettes for specific design styles (minimalist, vibrant, corporate, etc.)</li>
+                        <li>Extract color palettes from uploaded images</li>
+                        <li>Suggest complementary, analogous, triadic, and tetradic color combinations</li>
+                        <li>Provide accessibility compliance checking (WCAG standards)</li>
+                    </ul>
+                    
+                    <a href="https://www.bairesdev.com/tools/ai-colors" target="_blank" class="color-palette-link">
+                        Try AIColors Now →
+                    </a>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>3.2.5 AI Coding Assistant</h4>
+                    <p>You can always start with text AI tools for code generation until you are confident to create a comprehensive solution or application. However, when using AI to generate code without a programming background, there are several important considerations and potential challenges to keep in mind:</p>
+                    
+                    <div class="card">
+                        <h5>Key Challenges for Non-Coders Using AI Code Generation:</h5>
+                        <ul>
+                            <li>Environment Setup Complexity</li>
+                            <li>Error Interpretation Difficulties</li>
+                            <li>File System and Path Management</li>
+                            <li>Code Integration Issues</li>
+                            <li>Limited Ability to Customize</li>
+                            <li>Security and Maintenance Concerns</li>
+                            <li>Tool and Framework Dependencies</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h5>Recommended Approach:</h5>
+                            <p>Begin with AI-assisted learning rather than full code generation. Use AI to:</p>
+                            <ul>
+                                <li>Explain programming concepts in simple terms</li>
+                                <li>Generate small code snippets for specific tasks</li>
+                                <li>Help debug specific errors</li>
+                                <li>Suggest learning resources tailored to your needs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <div class="use-case-box">
-                <h3>3. New Hire Onboarding List Flow</h3>
-                <p><strong>Scenario:</strong> Scicom automated onboarding workflow</p>
-                <p><strong>Process flow:</strong></p>
-                <ol class="step-list">
-                    <li>HR adds new hire to master list → Triggers flow</li>
-                    <li>Create user accounts (Active Directory/Office 365)</li>
-                    <li>Assign software licenses & security groups</li>
-                    <li>Setup SharePoint access & team memberships</li>
-                    <li>Send welcome email with credentials and first-day instructions</li>
-                    <li>Notify IT, manager, and facilities team</li>
-                </ol>
-                <p><strong>Benefits:</strong> Reduces manual setup from 2 hours to 15 minutes</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Copilot Prompt Library</h2>
-            
-            <h3>Email Prompts</h3>
-            <div class="prompt-box">"Rewrite this message as a professional business email: [paste your draft]"</div>
-            <div class="prompt-box">"Summarize this email thread highlighting key decisions and action items"</div>
-            <div class="prompt-box">"Draft a follow-up email to a client about project [project name] after our meeting on [date]"</div>
-            
-            <h3>Document & Report Prompts</h3>
-            <div class="prompt-box">"Identify 3 key insights from this dataset and explain them in simple terms"</div>
-            <div class="prompt-box">"Convert these meeting notes into a structured summary with: decisions, action items, owners, deadlines"</div>
-            <div class="prompt-box">"Improve the clarity and professionalism of this project status report"</div>
-            
-            <h3>Creative & Planning Prompts</h3>
-            <div class="prompt-box">"Brainstorm 5 agenda items for a team meeting about [topic]"</div>
-            <div class="prompt-box">"Suggest 3 different approaches to solve [problem statement]"</div>
-            <div class="prompt-box">"Create a checklist for [process name] with estimated time for each step"</div>
-        </div>
-        
-        <div class="section">
-            <h2>This Week's Practice Challenge</h2>
-            
-            <div class="use-case-box">
-                <h3>Beginner (Choose 1)</h3>
-                <span class="badge">15 min setup</span>
-                <span class="badge">Beginner</span>
-                <ul class="step-list">
-                    <li>Create a flow that saves email attachments from specific senders to OneDrive</li>
-                    <li>Set up a daily Teams reminder at 9 AM for your top 3 priorities</li>
-                    <li>Use Copilot to draft a meeting invitation for your next team sync</li>
-                </ul>
-            </div>
-            
-            <div class="use-case-box">
-                <h3>Intermediate (Choose 1)</h3>
-                <span class="badge">30-45 min setup</span>
-                <span class="badge">Intermediate</span>
-                <ul class="step-list">
-                    <li>Build an approval flow for small purchase requests (< $500)</li>
-                    <li>Automate weekly report compilation from multiple sources</li>
-                    <li>Create a flow that notifies you when specific keywords appear in company announcements</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Learning Resources</h2>
-            <ul class="resources-list">
-                <li><strong>Microsoft Learn:</strong> "Get started with Power Automate" learning path</li>
-                <li><strong>YouTube:</strong> John Liu's Power Automate tutorials</li>
-                <li><strong>Internal:</strong> Company Power Platform Community</li>
-                <li><strong>Practice:</strong> Power Automate Desktop (free for Windows)</li>
-                <li><strong>Templates:</strong> Power Automate Templates Gallery</li>
-                <li><strong>Copilot Lab:</strong> Microsoft's prompt examples and techniques</li>
-                <li><strong>Certification:</strong> PL-900: Power Platform Fundamentals</li>
-                <li><strong>Forums:</strong> Power Automate Community & Stack Overflow</li>
-            </ul>
+            <section id="closing">
+                <div class="section-icon">📚</div>
+                <h2>Closing & Certification Paths</h2>
+                
+                <div class="card">
+                    <h3>Microsoft Certifications:</h3>
+                    
+                    <div class="highlight-box">
+                        <h4>Microsoft Certified: AI Business Professional (Exam AB‑730)</h4>
+                        <p><strong>Official Microsoft Learn study guide:</strong></p>
+                        <p><a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-730" target="_blank">https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-730</a></p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Microsoft Certified: AI Transformation Leader (Exam AB‑731)</h4>
+                        <p><strong>Overview & explanation of AB‑731:</strong></p>
+                        <p><a href="https://vladtalkstech.com/microsoft-learning-and-credential-news/5-new-microsoft-365-copilot-credentials-explained-ab-900-ab-730-ab-731-applied-skills/" target="_blank">https://vladtalkstech.com/microsoft-learning-and-credential-news/5-new-microsoft-365-copilot-credentials-explained-ab-900-ab-730-ab-731-applied-skills/</a></p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Microsoft Certified: Azure AI Fundamentals (AI‑900)</h4>
+                        <p><strong>Official Microsoft Learn certification page:</strong></p>
+                        <p><a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals" target="_blank">https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals</a></p>
+                    </div>
+                </div>
+            </section>
         </div>
         
         <footer>
-            <p>Contact: Angela Xu & Chelsea | Teams Channel: #AI-Automation-Workshop</p>
-            <p>Feedback welcome! Please share your automation success stories with the team.</p>
-            <p>Handout version 1.0 | Updated: [Today's Date]</p>
+            <p><span class="footer-accent">AI & Automation in Daily Work Handouts</span> | Prepared by Angela Xu & Chelsea</p>
+            <p>© 2024 | For educational and sharing purposes</p>
         </footer>
     </div>
-    
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Need Help?</h4>
-                <p>Reach out to our AI Support Team for assistance with implementing these tools in your workflow.</p>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">📋 Book a Consultation</a>
-                    <a href="#" class="footer-link">📚 Training Materials</a>
-                    <a href="#" class="footer-link">💡 Submit an Idea</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Connect With Us</h4>
-                <div class="social-links">
-                    <a href="#" class="social-icon">💬 Teams</a>
-                    <a href="#" class="social-icon">📱 Yammer</a>
-                    <a href="#" class="social-icon">👥 Sharepoint</a>
-                </div>
-            </div>
-            <div class="footer-legal">
-                <p>© 2024 Your Company. All rights reserved. | <a href="#" class="legal-link">Privacy Policy</a> | <a href="#" class="legal-link">Terms of Use</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <style>
-        .footer {
-            background: #1e293b;
-            color: #f8fafc;
-            padding: 3rem 0 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .footer-section {
-            margin-bottom: 2rem;
-        }
-        
-        .footer h4 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .footer-link, .social-icon, .legal-link {
-            color: #93c5fd;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .footer-link:hover, .social-icon:hover, .legal-link:hover {
-            color: #60a5fa;
-            text-decoration: underline;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .footer-legal {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #334155;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #94a3b8;
-        }
-        
-        .contact-info {
-            margin-top: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            display: inline-block;
-            backdrop-filter: blur(5px);
-        }
-        
-        .contact-item {
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px dashed rgba(255,255,255,0.5);
-            transition: all 0.2s ease;
-        }
-        
-        .contact-item a:hover {
-            color: #93c5fd;
-            border-bottom-color: #93c5fd;
-        }
-        
-        .contact-icon {
-            opacity: 0.8;
-        }
-    </style>
-
-    <script>
-        // Add current date to footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const dateString = today.toLocaleDateString('en-US', options);
-            
-            const dateElements = document.querySelectorAll('.date, footer p:nth-child(3)');
-            dateElements.forEach(el => {
-                if (el.textContent.includes('[Today\'s Date]')) {
-                    el.textContent = el.textContent.replace('[Today\'s Date]', dateString);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
