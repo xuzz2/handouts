@@ -978,6 +978,34 @@
                 border: 1px solid #ccc;
             }
         }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px 0;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        footer p {
+            margin: 10px 0;
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+        
+        .footer-accent {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .last-modified {
+            color: var(--text-light);
+            font-size: 0.85em;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -1647,7 +1675,6 @@ Lighting & Color: Soft studio lighting with the main light source positioned fro
         
         <footer>
             <p><span class="footer-accent">AI & Automation in Daily Work Handouts</span> | Prepared by Angela Xu & Chelsea</p>
-            <p>© 2024 | For educational and sharing purposes</p>
         </footer>
     </div>
 
@@ -1661,6 +1688,20 @@ Lighting & Color: Soft studio lighting with the main light source positioned fro
                     this.classList.toggle('checked');
                 });
             });
+
+            // Add last modified date to footer
+            const lastModified = document.createElement('p');
+            lastModified.className = 'last-modified';
+            lastModified.textContent = 'Last modified: ' + new Date(document.lastModified).toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            });
+            
+            document.querySelector('footer').appendChild(lastModified);
         });
     </script>
 </body>
